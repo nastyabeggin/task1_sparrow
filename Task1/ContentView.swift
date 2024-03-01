@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    let rectangleHeight: CGFloat = 50
+    
     var body: some View {
         TabView {
             ZStack {
@@ -14,16 +16,17 @@ struct ContentView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
-                .contentMargins(.bottom, 50, for: .scrollIndicators)
-                .contentMargins(.bottom, 50, for: .scrollContent)
+                .contentMargins(.bottom, rectangleHeight, for: .scrollIndicators)
+                .contentMargins(.bottom, rectangleHeight, for: .scrollContent)
                 VStack {
                     Spacer()
                     Rectangle()
                         .fill(.red)
-                        .frame(width: .infinity, height: 50)
+                        .frame(height: rectangleHeight)
                         .opacity(0.5)
                 }
             }
+            .frame(maxWidth: .infinity)
             .tabItem {
                 Label("First", systemImage: "star")
             }
